@@ -1,0 +1,11 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheck_path = "/api/health"
+healthcheck_timeout = 300
+restarts = "on-failure"
+
+[[mounts]]
+source = "ollama_models"
+destination = "/root/.ollama"
