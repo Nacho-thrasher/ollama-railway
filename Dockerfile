@@ -6,8 +6,12 @@ EXPOSE 11434
 # Ensure the models directory exists
 RUN mkdir -p /root/.ollama/models
 
-
-#CMD ollama rm phi4-mini:latest || true && serve
-
 # The ollama binary is integrated into the image and should be called directly
-CMD ["serve"]
+#CMD ["serve"]
+
+# Copiamos script de arranque
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Entramos con el script de arranque que usa socat y ollama
+CMD ["/start.sh"]
