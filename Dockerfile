@@ -6,6 +6,9 @@ ENV OLLAMA_NUM_PARALLEL=1
 ENV OLLAMA_MMAP=0
 ENV OLLAMA_MAX_LOADED_MODELS=1
 
+# Anulamos el entrypoint original (ollama)
+ENTRYPOINT []
+
 # Ollama runs on port 11434 by default
 EXPOSE 11434
 
