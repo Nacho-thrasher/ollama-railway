@@ -1,17 +1,17 @@
 FROM ollama/ollama:latest
 
+# Anulamos el entrypoint original (ollama)
+ENTRYPOINT []
+
 # Ollama runs on port 11434 by default
 EXPOSE 11434
 
-# Ensure the models directory exists
+# Creamos carpeta de modelos por si acaso
 RUN mkdir -p /root/.ollama/models
 
-# The ollama binary is integrated into the image and should be called directly
-#CMD ["serve"]
-
-# Copiamos script de arranque
+# Copiamos el script de arranque optimizado
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Entramos con el script de arranque que usa socat y ollama
+# Ejecutamos el script personalizado
 CMD ["/start.sh"]
