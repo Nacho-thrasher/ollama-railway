@@ -7,8 +7,7 @@ EXPOSE 11434
 RUN mkdir -p /root/.ollama/models
 
 
-CMD ollama rm phi4-mini:latest || true && serve
-
+#CMD ollama rm phi4-mini:latest || true && serve
 
 # The ollama binary is integrated into the image and should be called directly
-# CMD ["serve"]
+CMD ["serve"]
